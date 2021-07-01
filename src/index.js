@@ -7,7 +7,7 @@ console.log('Hi world, without with webpack')
 const arr = [1, 2, 3]
 
 const codeESNex = () => {
-    console.log(...arr);
+	console.log(...arr);
 }
 
 codeESNex()

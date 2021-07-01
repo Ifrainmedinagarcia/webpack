@@ -35,7 +35,7 @@ module.exports = {
 			},
 			{
 				test: /\.(jpg|jpeg|png|gif|svg|webp)$/i,
-				use: ['file-loader?name=assets/[name].[ext]'],
+				use: ['file-loader?name=assets/[name].[ext]', "image-webpack-loader"],
 			},
 			{
 				test: /\.(ttf)$/i,
