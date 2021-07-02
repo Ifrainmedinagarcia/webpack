@@ -1,7 +1,16 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const { Chunk } = require('webpack')
 
 module.exports = {
+	entry: {
+		js: "./src/index.js",
+		react: "./src/index_react.js",
+		ts: "./src/index_ts.js"
+	},
+	output: {
+		filename: "[name].[chunkhash].js"
+	},
 	module: {
 		rules: [
 			{
@@ -44,9 +53,27 @@ module.exports = {
 		]
 	},
 	plugins: [
+		/* 		new HtmlWebPackPlugin({
+					template: './public/index.html',
+					filename: './index.html'
+				}), */
 		new HtmlWebPackPlugin({
 			template: './public/index.html',
-			filename: './index.html'
+			filename: './index.html',
+			chunks: ["js"],
+			hash: true
+		}),
+		new HtmlWebPackPlugin({
+			template: './public/index.html',
+			filename: './index_react.html',
+			chunks: ["react"],
+			hash: true
+		}),
+		new HtmlWebPackPlugin({
+			template: './public/index.html',
+			filename: './index_ts.html',
+			chunks: ["ts"],
+			hash: true
 		}),
 		new MiniCssExtractPlugin()
 	]
